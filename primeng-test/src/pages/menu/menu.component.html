@@ -1,0 +1,59 @@
+<div class="grid m-5">
+
+  <p-card header="Campos" class="col-12 md:col-6 lg:col-3 overflow-hidden">
+
+    <p-floatLabel class="w-full">
+      <p-autoComplete 
+        id="auto-complete"
+        [(ngModel)]="selectedItem" 
+        [suggestions]="suggestions" 
+        (completeMethod)="search($event)"
+      />
+      <label for="auto-complete">Auto completar</label>
+    </p-floatLabel>
+
+    <p-divider />
+
+    <p-iconField iconPosition="left">
+      <p-inputIcon styleClass="pi pi-search" />
+      <input type="text" pInputText placeholder="Search" />
+    </p-iconField>
+
+    <p-divider />
+
+    <p-iconField iconPosition="right">
+      <p-inputIcon styleClass="pi pi-spinner pi-spin" />
+      <input type="text" pInputText />
+    </p-iconField>
+
+    <p-divider/>
+
+    <p-floatLabel class="w-full">
+      <p-chips id="chips" [(ngModel)]="chips"></p-chips>
+      <label for="chips">Chips, escreva e enter</label>
+    </p-floatLabel>
+
+    <p-divider/>
+
+    <p-inputMask mask="(99)-9999.99999" placeholder="mascara de numero" />
+  </p-card>
+
+
+
+
+  <p-card header="Texto" class="col-12 md:col-6 lg:col-3">
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, distinctio. Fugiat rerum earum reprehenderit quis, quasi provident vitae nisi ab error blanditiis minus incidunt excepturi aliquid dolorum at repellendus consequuntur.
+    </p>
+    <p-divider/>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, distinctio. Fugiat rerum earum reprehenderit quis, quasi provident vitae nisi ab error blanditiis minus incidunt excepturi aliquid dolorum at repellendus consequuntur.
+    </p>
+  </p-card>
+  <div class="col-12 md:col-6 lg:col-3">
+      <div class="text-center p-3 border-round-sm bg-primary font-bold">col-12 md:col-6 lg:col-3</div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-3">
+      <div class="text-center p-3 border-round-sm bg-primary font-bold">col-12 md:col-6 lg:col-3</div>
+  </div>
+</div>
