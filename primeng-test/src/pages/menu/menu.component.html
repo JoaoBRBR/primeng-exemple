@@ -1,12 +1,11 @@
+<p-toast position="top-left" [style]="{ marginTop: '80px' }"></p-toast>
 <div class="grid m-5">
-
   <p-card header="Campos" class="col-12 md:col-6 lg:col-3 overflow-hidden">
-
     <p-floatLabel class="w-full">
-      <p-autoComplete 
+      <p-autoComplete
         id="auto-complete"
-        [(ngModel)]="selectedItem" 
-        [suggestions]="suggestions" 
+        [(ngModel)]="selectedItem"
+        [suggestions]="suggestions"
         (completeMethod)="search($event)"
       />
       <label for="auto-complete">Auto completar</label>
@@ -26,34 +25,88 @@
       <input type="text" pInputText />
     </p-iconField>
 
-    <p-divider/>
+    <p-divider />
 
     <p-floatLabel class="w-full">
       <p-chips id="chips" [(ngModel)]="chips"></p-chips>
       <label for="chips">Chips, escreva e enter</label>
     </p-floatLabel>
 
-    <p-divider/>
+    <p-divider />
 
     <p-inputMask mask="(99)-9999.99999" placeholder="mascara de numero" />
+
+    <p-button (onClick)="salvo()">Salvar</p-button>
   </p-card>
-
-
-
 
   <p-card header="Texto" class="col-12 md:col-6 lg:col-3">
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, distinctio. Fugiat rerum earum reprehenderit quis, quasi provident vitae nisi ab error blanditiis minus incidunt excepturi aliquid dolorum at repellendus consequuntur.
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis,
+      distinctio. Fugiat rerum earum reprehenderit quis, quasi provident vitae
+      nisi ab error blanditiis minus incidunt excepturi aliquid dolorum at
+      repellendus consequuntur.
     </p>
-    <p-divider/>
+    <p-divider />
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, distinctio. Fugiat rerum earum reprehenderit quis, quasi provident vitae nisi ab error blanditiis minus incidunt excepturi aliquid dolorum at repellendus consequuntur.
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis,
+      distinctio. Fugiat rerum earum reprehenderit quis, quasi provident vitae
+      nisi ab error blanditiis minus incidunt excepturi aliquid dolorum at
+      repellendus consequuntur.
     </p>
   </p-card>
-  <div class="col-12 md:col-6 lg:col-3">
-      <div class="text-center p-3 border-round-sm bg-primary font-bold">col-12 md:col-6 lg:col-3</div>
-  </div>
-  <div class="col-12 md:col-6 lg:col-3">
-      <div class="text-center p-3 border-round-sm bg-primary font-bold">col-12 md:col-6 lg:col-3</div>
-  </div>
+
+  <p-card header="Menu legal" class="col-12 md:col-6 lg:col-3 h-auto">
+    <p-speedDial [model]="items" direction="up" />
+    <p-divider />
+    <p>E notificação de mensagens muito legal tambem</p>
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+    <p-divider />
+  </p-card>
+
+  <p-card header="Arrasta" class="col-12 md:col-6 lg:col-3">
+    <div class="p-2 border-1 surface-border border-round w-15rem">
+      <ul class="list-none flex flex-column gap-2 p-0 m-0">
+        <li
+          *ngFor="let product of availableProducts"
+          class="p-2 border-round shadow-1"
+          pDraggable
+          (onDragStart)="dragStart(product)"
+          (onDragEnd)="dragEnd()"
+        >
+          {{ product.name }}
+        </li>
+      </ul>
+    </div>
+    <div
+      class="p-2 border-1 surface-border border-round w-15rem"
+      pDroppable
+      (onDrop)="drop()"
+    >
+      <p class="text-center surface-border border-bottom-1">Arraste aqui</p>
+      <ul
+        class="list-none flex flex-column gap-2 p-0 m-0"
+        *ngIf="selectedProducts"
+      >
+        <li
+          *ngFor="let product of selectedProducts"
+          class="p-2 border-round shadow-1"
+        >
+          {{ product.name }}
+        </li>
+      </ul>
+    </div>
+  </p-card>
 </div>
